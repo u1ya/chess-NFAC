@@ -39,7 +39,7 @@ export default function ProPageClient({ isLoggedIn, isPro }: ProPageClientProps)
       {/* Hero */}
       <div className="text-center flex flex-col gap-3">
         <div className="inline-flex items-center gap-2 mx-auto px-4 py-2 rounded-full text-sm font-bold" style={{ background: '#D4AF3722', color: '#D4AF37', border: '1px solid #D4AF3744' }}>
-          ♛ ChessCoach Arena Pro
+          ♛ Chess Arena Pro
         </div>
         <h1 className="text-4xl font-bold text-white">
           Стань <span style={{ color: '#D4AF37' }}>Pro-игроком</span>

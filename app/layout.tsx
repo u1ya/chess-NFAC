@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'ChessCoach Arena',
+  title: 'Chess Arena',
   description: 'Шахматная платформа с городскими рейтингами и ИИ-тренером',
 }
 
