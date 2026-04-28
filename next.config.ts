@@ -1,7 +1,13 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
+import path from 'path'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  turbopack: {
+    root: path.resolve(__dirname),
+    resolveAlias: {
+      fs: { browser: './lib/empty.ts' },
+    },
+  },
+}
 
-export default nextConfig;
+export default nextConfig

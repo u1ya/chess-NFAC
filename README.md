@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ChessCoach Arena
 
-## Getting Started
+Шахматная платформа с AI-тренером для игроков, которые хотят расти, а не просто играть.
 
-First, run the development server:
+## Что это
+
+ChessCoach Arena — веб-приложение, где можно сыграть в шахматы и сразу получить разбор партии от искусственного интеллекта. Никакой регистрации на сторонних сервисах, никакого движкового анализа с бесконечными стрелками — только понятный человеческий разбор: что пошло не так, что получилось хорошо и что нужно исправить.
+
+## Для кого
+
+Для любителей, которые играют ради удовольствия и хотят понемногу становиться лучше. Не для тех, кто изучает дебютные деревья до 20-го хода, а для тех, кто хочет понять, почему проигрывает, и получить один конкретный совет после каждой партии.
+
+## Режимы игры
+
+- **С другом** — по коду комнаты, в реальном времени, рейтинг меняется по итогам
+- **Против бота** — Stockfish с тремя уровнями сложности (новичок, средний, мастер)
+- **На одном устройстве** — два игрока за одним экраном
+
+## Почему это ценно
+
+Большинство шахматных платформ либо перегружены функциями, либо требуют платной подписки за любой анализ. Здесь AI-разбор бесплатно 5 раз в день — этого достаточно для повседневной игры. Pro-подписка снимает лимит для тех, кто играет активно.
+
+Разбор не пытается быть Stockfish. Он отвечает на вопросы, которые задаёт себе живой игрок: «Какой ход был самым слабым? Что я сделал правильно? Что нужно поменять?»
+
+## Стек
+
+- **Next.js 16** (App Router, Server Actions)
+- **Supabase** (PostgreSQL, Auth, Realtime)
+- **Stockfish** (WASM, анализ в браузере)
+- **Gemini 2.0 Flash** (AI-разбор партий)
+- **react-chessboard**, **chess.js**
+
+## Запуск локально
 
 ```bash
+npm install
+cp .env.local.example .env.local   # заполни ключи Supabase и Gemini
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Переменные среды:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Переменная | Где взять |
+|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase → Project Settings → API |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase → Project Settings → API |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Project Settings → API |
+| `GEMINI_API_KEY` | [aistudio.google.com](https://aistudio.google.com) |
