@@ -1,48 +1,67 @@
 # Chess Arena
 
-Шахматная платформа с AI-тренером для игроков, которые хотят расти, а не просто играть.
+A chess platform with an AI coach for players who want to improve, not just play.
 
-## Что это
+## Overview
 
-Chess Arena — веб-приложение, где можно сыграть в шахматы и сразу получить разбор партии от искусственного интеллекта. Никакой регистрации на сторонних сервисах, никакого движкового анализа с бесконечными стрелками — только понятный человеческий разбор: что пошло не так, что получилось хорошо и что нужно исправить.
+Chess Arena is a web application where you can play chess and get instant AI-powered feedback on your games.
 
-## Для кого
+No need to register on third-party platforms, no overwhelming engine analysis with endless arrows and variations — just clear, human-friendly feedback on what went wrong, what you did well, and how you can improve.
 
-Для любителей, которые играют ради удовольствия и хотят понемногу становиться лучше. Не для тех, кто изучает дебютные деревья до 20-го хода, а для тех, кто хочет понять, почему проигрывает, и получить один конкретный совет после каждой партии.
+## Who Is It For?
 
-## Режимы игры
+Chess Arena is designed for casual players who enjoy chess and want to gradually improve their skills.
 
-- **С другом** — по коду комнаты, в реальном времени, рейтинг меняется по итогам
-- **Против бота** — Stockfish с тремя уровнями сложности (новичок, средний, мастер)
-- **На одном устройстве** — два игрока за одним экраном
+It's not aimed at players who memorize opening theory 20 moves deep. Instead, it's for those who want to understand why they lose games and walk away with one actionable piece of advice after each match.
 
-## Почему это ценно
+## Game Modes
 
-Большинство шахматных платформ либо перегружены функциями, либо требуют платной подписки за любой анализ. Здесь AI-разбор бесплатно 5 раз в день — этого достаточно для повседневной игры. Pro-подписка снимает лимит для тех, кто играет активно.
+- **Play with a Friend** — Create or join a room using a unique code, play in real time, and compete for rating points.
+- **Play Against AI** — Challenge Stockfish at three difficulty levels: Beginner, Intermediate, and Master.
+- **Local Multiplayer** — Play against a friend on the same device.
 
-Разбор не пытается быть Stockfish. Он отвечает на вопросы, которые задаёт себе живой игрок: «Какой ход был самым слабым? Что я сделал правильно? Что нужно поменять?»
+## Why Chess Arena?
 
-## Стек
+Most chess platforms are either overloaded with features or lock useful analysis tools behind paid subscriptions.
 
-- **Next.js 16** (App Router, Server Actions)
-- **Supabase** (PostgreSQL, Auth, Realtime)
-- **Stockfish** (WASM, анализ в браузере)
-- **Gemini 2.0 Flash** (AI-разбор партий)
-- **react-chessboard**, **chess.js**
+Chess Arena takes a different approach: **5 free AI game analyses per day**, enough for everyday players to learn from their games. For more active players, a Pro subscription removes this limit.
 
-## Запуск локально
+The AI coach doesn't try to replace Stockfish. Instead, it answers the questions real players actually care about:
+
+- What was my biggest mistake?
+- What did I do well?
+- What should I focus on improving?
+
+The goal is simple: **make every game an opportunity to learn.**
+
+## Tech Stack
+
+- **Next.js 16** — App Router and Server Actions
+- **Supabase** — PostgreSQL, Authentication, and Realtime
+- **Stockfish** — WebAssembly (WASM) for in-browser chess analysis
+- **Gemini 2.0 Flash** — AI-powered game reviews and personalized feedback
+- **react-chessboard** — Interactive chessboard UI
+- **chess.js** — Chess rules, move validation, and game logic
+
+## Getting Started
+
+### Run Locally
 
 ```bash
 npm install
-cp .env.local.example .env.local   # заполни ключи Supabase и Gemini
+cp .env.local.example .env.local   # Add your Supabase and Gemini API keys
 npm run dev
 ```
 
-Переменные среды:
+### Environment Variables
 
-| Переменная | Где взять |
+| Variable | Where to Get It |
 |---|---|
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase → Project Settings → API |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase → Project Settings → API |
 | `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Project Settings → API |
-| `GEMINI_API_KEY` | [aistudio.google.com](https://aistudio.google.com) |
+| `GEMINI_API_KEY` | [Google AI Studio](https://aistudio.google.com) |
+
+---
+
+**Chess Arena — Play. Learn. Improve.**
